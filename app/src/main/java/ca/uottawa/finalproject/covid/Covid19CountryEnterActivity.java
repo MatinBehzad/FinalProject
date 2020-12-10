@@ -157,11 +157,23 @@ public class Covid19CountryEnterActivity extends AppCompatActivity implements Na
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawers();
+
         switch (item.getItemId()) {
             case R.id.showSavedData:
                 startActivity(new Intent(this, Covid19CasesCountriesDatabaseDataActivity.class));
                 break;
+
+            case R.id.help:
+                String message = "Welcome to COVID-19 app, this app gives you information regarding latest number of COVID cases in different countries and provinces.";
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                alertDialogBuilder.setTitle("Help");
+                alertDialogBuilder.setMessage(message);
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+                break;
         }
+
+
         return true;
     }
 }
